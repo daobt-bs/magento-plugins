@@ -1,0 +1,8 @@
+{
+  "name": "magento-backend",
+  "description": "Claude Code plugins for Magento 2 Dev team",
+  "version": "1.0.0",
+  "author": {
+    "name": "Dao BT"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "bs-plugins",
+  "owner": {
+    "name": "Dao BT"
+  },
+  "metadata": {
+    "description": "Claude Code plugins for Magento 2 Dev team",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "magento-backend",
+      "source": "./plugins/magento-backend",
+      "description": "Skills for Magento 2 backend",
+      "version": "1.0.0",
+      "author": {
+        "name": "Dao BT"
+      },
+      "category": "development",
+      "keywords": ["magento", "magento2", "mage-os", "php", "code-review", "security", "debug"]
+    }
+  ]
+}
