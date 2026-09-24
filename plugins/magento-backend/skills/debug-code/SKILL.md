@@ -6,7 +6,7 @@ metadata:
   author: mage-os
 ---
 
-# Skill: magento-debug
+# Skill: debug-code
 
 **Purpose**: Diagnose and fix Magento 2 / Mage-OS issues from a symptom or error.
 **Compatible with**: Any LLM (Claude, GPT, Gemini, local models)

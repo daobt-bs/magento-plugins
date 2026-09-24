@@ -7,7 +7,7 @@ description: Use when performing a security audit, penetration test review, or s
 
 ## Overview
 
-Systematic security audit for Magento 2 codebases. Goes beyond single-file review (see `validate-magento-backend-code` for PR-level checks) to assess the **entire attack surface**: custom modules, third-party extensions, configuration, API endpoints, admin controllers, payment flows, and infrastructure settings.
+Systematic security audit for Magento 2 codebases. Goes beyond single-file review (see `validate-code` for PR-level checks) to assess the **entire attack surface**: custom modules, third-party extensions, configuration, API endpoints, admin controllers, payment flows, and infrastructure settings.
 
 **Core principle:** Attackers don't review one file at a time — they scan for patterns across the whole codebase. This skill does the same.
 
@@ -18,7 +18,7 @@ Systematic security audit for Magento 2 codebases. Goes beyond single-file revie
 - Reviewing third-party extensions before installation
 - Post-incident investigation (looking for similar vulnerabilities)
 - Compliance check (PCI DSS, GDPR data handling)
-- NOT for single-file or PR-level review — use `validate-magento-backend-code` for that
+- NOT for single-file or PR-level review — use `validate-code` for that
 
 ## Audit Workflow
 
