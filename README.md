@@ -22,7 +22,8 @@ Claude Code plugin marketplace for the Magento 2 Dev team.
         └── skills/
             ├── validate-code/SKILL.md
             ├── debug-code/SKILL.md
-            └── security-audit/SKILL.md
+            ├── security-audit/SKILL.md
+            └── resolve-cache-issue/SKILL.md
 ```
 
 ## Installation
@@ -155,6 +156,7 @@ For tools without skill support (ChatGPT, Gemini web, local models, ...), paste 
 | Review a PR / module / file | [`validate-code/SKILL.md`](plugins/magento-backend/skills/validate-code/SKILL.md) |
 | Debug an error or symptom | [`debug-code/SKILL.md`](plugins/magento-backend/skills/debug-code/SKILL.md) |
 | Security audit | [`security-audit/SKILL.md`](plugins/magento-backend/skills/security-audit/SKILL.md) |
+| Investigate stale content or cache behavior | [`resolve-cache-issue/SKILL.md`](plugins/magento-backend/skills/resolve-cache-issue/SKILL.md) |
 
 ## Adding a new plugin
 
