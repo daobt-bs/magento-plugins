@@ -123,32 +123,6 @@ For a concrete issue, load only the relevant rule(s) under `rules/`. Use the spe
 
 ## Final response
 
-Return:
-
-```text
-## Diagnosis
-Issue: <ISSUE_ID or inconclusive>
-Environment: <environment>
-Confidence: <0..1>
-
-## Evidence
-1. <observed evidence>
-2. <observed evidence>
-
-## Root Cause
-<supported conclusion, or what remains unproven>
-
-## Remediation
-<targeted action, or human command pack>
-
-## Verification
-<observed verification evidence, or exact evidence still required>
-
-## Risk
-<Low | Medium | High>
-
-## Status
-<Resolved | Need human input | Inconclusive>
-```
+Return the report structure defined in `references/output-contract.md`. Every section is required; write the specific unknown rather than dropping a section.
 
 When remote runtime evidence is missing, say exactly what cannot yet be distinguished and provide the smallest read-only command that resolves that uncertainty.

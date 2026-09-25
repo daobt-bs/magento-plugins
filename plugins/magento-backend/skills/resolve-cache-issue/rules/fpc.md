@@ -21,3 +21,7 @@ Trace invalidation from the changed entity to its cache identity/tag and backend
 ## WRONG_CACHE_CONTEXT
 
 Compare requests that differ by store, currency, customer group, locale, cookies, query parameters, or other dimensions. Inspect `getCacheKeyInfo()` and HTTP `Vary`/cookie behavior as appropriate.
+
+## WRONG_CACHE_KEY
+
+Where `WRONG_CACHE_CONTEXT` describes two different requests sharing one wrong entry, this is its code-level cause: the block's `getCacheKeyInfo()` omits a dimension its output actually depends on, or two distinct blocks produce the same key and collide. Symptoms are a plausible-but-wrong value, or content from one entity/store appearing under another. Inspect `getCacheKeyInfo()` against every input the block's output reads — store, customer group, currency, locale, product/category id, page, design/theme, and any custom parameter — then look for a collision between two block classes returning the same key. Reproduce by requesting the two differing variants; a correct fix makes them separate entries rather than one shared entry. Cleaning the cache temporarily hides this and it returns, so treat recurrence after a clean as evidence for this rule over a stale-entry explanation.
