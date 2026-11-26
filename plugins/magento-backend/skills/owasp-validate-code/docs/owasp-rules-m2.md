@@ -1,11 +1,11 @@
 # OWASP Top 10:2025 — Coding rule cho Magento 2
 
 > **Bản v2.4, chờ duyệt để phát hành** · cập nhật 2026-11-18 · dành cho dev Magento 2.
-> Đọc kèm: [bản chung](../general/owasp-rules.md) (nguyên tắc cho mọi platform) · [bản cho AI](owasp-rules.ai.md) (cùng mã rule, rút gọn).
+> Đọc kèm: [bản chung](owasp-rules-general.md) (nguyên tắc cho mọi platform) · [bản cho AI](../references/magento2-rules.md) (cùng mã rule, rút gọn).
 
 > Nguồn nội dung rule: [OWASP Top 10:2025](https://top10.owasp.org/2025) và [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/) (CC BY-SA 4.0, diễn đạt lại). Tên class và method Magento lấy từ source Magento 2.4.6-p4 và tài liệu Adobe Commerce; OWASP không có cheat sheet cho Magento.
 
-**Tóm tắt 1 dòng:** 50 rule code (cộng `M2-AI-05` cho phần dùng AI), mỗi rule nói rõ trong Magento 2 phải dùng API nào, cấm viết gì, và reviewer kiểm bằng lệnh nào. Rule khi dùng AI để viết code nằm ở Phần B của [bản chung](../general/owasp-rules.md); bản này chỉ bổ sung phần riêng của Magento (`M2-AI-05`).
+**Tóm tắt 1 dòng:** 50 rule code (cộng `M2-AI-05` cho phần dùng AI), mỗi rule nói rõ trong Magento 2 phải dùng API nào, cấm viết gì, và reviewer kiểm bằng lệnh nào. Rule khi dùng AI để viết code nằm ở Phần B của [bản chung](owasp-rules-general.md); bản này chỉ bổ sung phần riêng của Magento (`M2-AI-05`).
 
 ## Cách đọc
 
@@ -26,7 +26,7 @@
 | `[CODE]` | Hành vi đọc trực tiếp trong `vendor/magento` của dự án 2.4.6-p4, kèm `file:line` |
 | `[RUN]` | Đã chạy thử thật (ghi rõ môi trường) |
 | `[Adobe]` | Theo tài liệu Adobe Commerce, chỉ dùng cho tên API hay version |
-| CS, CWE, X01/X03, CSPRNG | Xem bảng thuật ngữ trong [bản chung](../general/owasp-rules.md) |
+| CS, CWE, X01/X03, CSPRNG | Xem bảng thuật ngữ trong [bản chung](owasp-rules-general.md) |
 
 Version: tài liệu kiểm trên Magento **2.4.6-p4**. Kiểm version của dự án bằng `composer show magento/product-community-edition` hoặc `bin/magento --version`. Dự án ở version khác thì kiểm lại các dòng `[CODE]`.
 
@@ -104,13 +104,13 @@ Dán vào PR. ☑ = đã kiểm và đạt; gạch dòng = không liên quan. M�
 - [ ] 🟠 `M2-A10-03` Ghi nhiều bảng thì dùng transaction
 - [ ] 🔴 `M2-A10-04` Kiểm kết quả `load()` bằng `getId()`
 
-**Rule chung không có bản M2, vẫn phải kiểm** (xem [bản chung](../general/owasp-rules.md)):
+**Rule chung không có bản M2, vẫn phải kiểm** (xem [bản chung](owasp-rules-general.md)):
 - [ ] 🟠 `G-A03-03` Package mới được nêu lý do trong PR
 - [ ] 🟡 `G-A05-07` (nếu có tính năng LLM) Output của LLM xử lý như input không tin cậy
 - [ ] 🟡 `G-A06-03` Luồng quan trọng có test trường hợp bị lạm dụng
 - [ ] 🟠 `G-A06-06` Luồng nhiều bước kiểm trạng thái ở server trước mỗi bước
 
-**B Khi code có AI tham gia** (áp cho mọi PR có code do AI viết hoặc sửa): dùng mục B trong checklist của [bản chung](../general/owasp-rules.md), cộng thêm:
+**B Khi code có AI tham gia** (áp cho mọi PR có code do AI viết hoặc sửa): dùng mục B trong checklist của [bản chung](owasp-rules-general.md), cộng thêm:
 - [ ] 🔴 `M2-AI-05` `app/etc/env.php` và file dump database nằm ngoài tầm đọc của công cụ AI
 
 ---
@@ -1220,7 +1220,7 @@ Tốt hơn: dùng repository `getById()`, method này ném `NoSuchEntityExceptio
 
 ## Phần B — Khi dùng AI để viết code
 
-Áp dụng toàn bộ Phần B của [bản chung](../general/owasp-rules.md) (`G-AI-01…08`). Riêng cho Magento:
+Áp dụng toàn bộ Phần B của [bản chung](owasp-rules-general.md) (`G-AI-01…08`). Riêng cho Magento:
 
 ### M2-AI-05 — `app/etc/env.php` và dump database nằm ngoài tầm đọc của công cụ AI
 **Mức:** 🔴 · cụ thể hoá `G-AI-05`
@@ -1330,6 +1330,6 @@ Trạng thái: bản 2025 là bản final (README của repo `OWASP/Top10` ghi "
 - 2026-11-16: bản nháp đầu tiên.
 - 2026-11-16: bản đề xuất cuối sau khi đối chiếu với tài liệu Adobe Commerce và OWASP Cheat Sheet. Thêm `M2-A01-08`, `M2-A06-03`; viết lại `M2-A05-05` (bản nháp lưu file riêng tư vào media, trái với hướng dẫn của Adobe); bổ sung `M2-A01-05`, `M2-A01-07`, `M2-A02-03`, `M2-A03-02`, `M2-A04-02`, `M2-A05-02`, `M2-A05-03`, `M2-A06-02`, `M2-A08-02`, `M2-A08-03`, `M2-A09-01`, `M2-A09-02`; thêm Phụ lục D.
 - 2026-11-17: **v2** sau research đợt 2 (chỉ Top 10:2025 và Cheat Sheet Series). Thêm `M2-A01-09`, `M2-A02-04`, `M2-A02-05`, `M2-A04-05`, `M2-A05-06`, `M2-A05-07`, `M2-A06-04`, `M2-A06-05`, `M2-A07-04`, `M2-A07-05`, Phần B (`M2-AI-05`). Bổ sung `M2-A08-03` (chống gửi lại, xử lý một lần). Viết lại Phụ lục D: tách nguồn nội dung (OWASP) khỏi nguồn tên API (source, Adobe).
-- 2026-11-17: **v2.1** sau vòng giả lập 1 (kiểm chứng nguồn, AI agent Magento, AI agent Python, dev mới). Thêm `M2-A01-10` (controller frontend cần đăng nhập, bẫy tên action). Tách `M2-A08-04` (SRI) khỏi `M2-A08-03`. Sửa ví dụ cookie gây lỗi fatal (`M2-A02-04`), ví dụ webhook trả message; thêm cảnh báo `canView()` với trang quay về, `lock()` mặc định chờ 1 tuần, `Curl` mặc định 300 giây và cho FTP, `setAllowedExtensions([])` cho mọi đuôi, `{{base_url}}` lấy từ request, `NoEncryption`, `JsonHexTag`, entity loader dùng chung cả tiến trình. Sửa 3 lệnh grep bỏ sót lỗi. Checklist có mức, có mục rule chung không có bản M2; thêm mục lục và ký hiệu. Nhật ký: `../../discussion/03-simulation-log.md`.
+- 2026-11-17: **v2.1** sau vòng giả lập 1 (kiểm chứng nguồn, AI agent Magento, AI agent Python, dev mới). Thêm `M2-A01-10` (controller frontend cần đăng nhập, bẫy tên action). Tách `M2-A08-04` (SRI) khỏi `M2-A08-03`. Sửa ví dụ cookie gây lỗi fatal (`M2-A02-04`), ví dụ webhook trả message; thêm cảnh báo `canView()` với trang quay về, `lock()` mặc định chờ 1 tuần, `Curl` mặc định 300 giây và cho FTP, `setAllowedExtensions([])` cho mọi đuôi, `{{base_url}}` lấy từ request, `NoEncryption`, `JsonHexTag`, entity loader dùng chung cả tiến trình. Sửa 3 lệnh grep bỏ sót lỗi. Checklist có mức, có mục rule chung không có bản M2; thêm mục lục và ký hiệu. (nhật ký giả lập nội bộ, không kèm trong plugin).
 - 2026-11-17: **v2.3** sau vòng giả lập 2 và 3. **Đính chính** ví dụ upload ở `M2-A05-05` (bản trước gọi `getUploadedFileName()` trước `save()`, sai). Sửa tên tham số redirect (`referer_url`, `success_url`, `error_url`). Thêm: lệnh tìm bẫy tên action (`M2-A01-10`), `trustedProxies` của `RemoteAddress`, đăng ký và làm mới section của customer-data, `|raw` trong email, `AlreadyExistsException`, `Validator\Image` trả `true` với file không phải ảnh, reCAPTCHA cho controller custom, outbox + cron, giới hạn email theo customer ID (core SendFriend mặc định đếm theo cookie), trừ số dư, file từ thư mục SFTP, mã kiểu bearer lưu dạng hash. `M2-A07-05` nâng lên 🔴. Tự kiểm của file AI có 17 lệnh (16 grep/find + phpcs); các lệnh grep/find đã chạy thử trên hai PR mẫu.
 - 2026-11-18: **v2.4** sau vòng kiểm chứng riêng cho phần sửa của v2.3 và research nốt các mục ❓. **Đính chính** `M2-A05-06`: `{{var}}` chỉ escape mặc định khi không có modifier; `{{var x|nl2br}}` cũng không escape (bản trước chỉ cảnh báo `|raw`); đổi lệnh kiểm tương ứng. Sửa số dòng `success_url`/`error_url`; 401 webhook là "body chung chung" (📎), để rỗng là 🔧; thêm số dòng cho `Validator\Image`, ghi chú adapter ảnh mặc định là GD2, nhãn `[CODE]` cho observer reCAPTCHA; file AI đánh dấu controller public bằng marker trong code (khớp `G-A01-01`). Thêm từ research: endpoint cho integration và tách đối tác (`M2-A01-03`), `__disableTmpl` chỉ tự động một phần (`M2-A05-03`), `x-magento-init` không bắt buộc qua `renderTag()` (`M2-A02-03`), số giới hạn mặc định của core làm mốc (`M2-A06-02`), tiêu chí "việc nặng" (`M2-A06-03`, 🔧), `form_key` trên trang cache và redirect kèm message (`M2-A04-05`), log callback chữ ký sai (`M2-A08-03`). Bổ sung sau thí nghiệm D-12 (user duyệt thêm, 2026-11-18): secret config khai báo sensitive trong `TypePool` để `app:config:dump` không ghi vào `config.php` (`M2-A04-03`, `[CODE]`); giới hạn kích thước response gọi ra ngoài bằng callback tiến trình tải, vì `CURLOPT_MAXFILESIZE` không chặn response không có `Content-Length` (`M2-A01-07`, `[RUN]` trên libcurl 7.88.1); giới hạn số lần theo người dùng cũng phải chống request song song (`M2-A06-04`). Tự kiểm của file AI có 18 lệnh (17 grep/find + phpcs).

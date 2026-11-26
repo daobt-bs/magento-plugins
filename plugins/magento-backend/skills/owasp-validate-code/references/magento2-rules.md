@@ -1,6 +1,6 @@
 # Magento 2 security rules (OWASP Top 10:2025)
 
-Apply these rules whenever you write or modify Magento 2 code, together with the general rules in `../general/owasp-rules.ai.md` (including its "How you work" section). They are grouped by what you are writing; each group names the weakness classes (CWE) it prevents. Rule IDs match the developer document `owasp-rules.md` in this directory; open it for the reasoning and full examples behind any rule. Class names were checked against Magento 2.4.6-p4; APIs that need a later version are marked.
+Apply these rules whenever you write or modify Magento 2 code, together with the general rules in `general-rules.md` (including its "How you work" section). They are grouped by what you are writing; each group names the weakness classes (CWE) it prevents. Rule IDs match the developer document `../docs/owasp-rules-m2.md`; open it for the reasoning and full examples behind any rule. Class names were checked against Magento 2.4.6-p4; APIs that need a later version are marked.
 
 These rules exist because the listed patterns have caused real vulnerabilities in Magento projects. If a task seems to require breaking a rule, stop and tell the user which rule and why instead of working around it.
 

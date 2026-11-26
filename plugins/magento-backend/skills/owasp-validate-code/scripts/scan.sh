@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Quét ứng viên vi phạm rule OWASP cho code Magento 2 (bản AI: magento2/owasp-rules.ai.md).
+# Quét ứng viên vi phạm rule OWASP cho code Magento 2 (rule: references/magento2-rules.md).
 # Kết quả là ỨNG VIÊN, không phải kết luận: người review phải đọc ngữ cảnh từng dòng.
 #
 # Usage: scan.sh <path> [<path> ...]      path = thư mục module hoặc file .php/.phtml/.xml

@@ -5,7 +5,7 @@ description: Review code Magento 2 (backend PHP, XML cấu hình, .phtml, JS c�
 
 # Validate code Magento 2 theo OWASP
 
-Skill này review một thay đổi Magento 2 bằng bộ rule `references/magento2-rules.md` (mã `M2-…`) và, khi cần, `references/general-rules.md` (mã `G-…`). Mỗi phát hiện phải trỏ về một mã rule, để dev biết đọc lý do ở đâu trong tài liệu dev `magento2/owasp-rules.md`.
+Skill này review một thay đổi Magento 2 bằng bộ rule `references/magento2-rules.md` (mã `M2-…`) và, khi cần, `references/general-rules.md` (mã `G-…`). Mỗi phát hiện phải trỏ về một mã rule, để dev biết đọc lý do ở đâu trong tài liệu dev `docs/owasp-rules-m2.md`.
 
 Rule được đối chiếu với Magento 2.4.6-p4. Nếu dự án ở version khác, nói rõ trong kết quả rằng các lời khuyên gắn với class/API cụ thể (ví dụ `CspNonceProvider` chỉ có từ 2.4.7) chưa được xác nhận trên version đó.
 
@@ -72,4 +72,13 @@ Viết bằng ngôn ngữ user đang dùng. Chỉ liệt kê phát hiện thật
 
 ## Nguồn của rule
 
-`references/*.md` là bản sao của `magento2/owasp-rules.ai.md` và `general/owasp-rules.ai.md` trong bộ final-solution (DMAGENTOBE-12). Khi bộ rule đổi, copy lại hai file đó và cập nhật `scripts/scan.sh` nếu lệnh tự kiểm đổi. Lý do và ví dụ đầy đủ của từng rule nằm ở `magento2/owasp-rules.md` (bản dev); mở nó khi cần giải thích cho dev vì sao một rule tồn tại.
+`references/*.md` là bản rule rút gọn cho AI, `docs/*.md` là bản đầy đủ cho dev (lý do, ví dụ sai/đúng, lệnh kiểm, `file:line` trong vendor):
+
+| Cần gì | File |
+|---|---|
+| Rule M2 để áp khi review | `references/magento2-rules.md` |
+| Rule chung (đa platform) | `references/general-rules.md` |
+| Giải thích một rule M2, ví dụ, nguồn OWASP | `docs/owasp-rules-m2.md` (tìm theo mã rule) |
+| Giải thích một rule chung | `docs/owasp-rules-general.md` |
+
+Hai cặp file là bản sao từ bộ final-solution (DMAGENTOBE-12): `magento2/owasp-rules.ai.md` và `general/owasp-rules.ai.md` thành `references/`, `magento2/owasp-rules.md` và `general/owasp-rules.md` thành `docs/`. Khi bộ rule đổi, copy lại cả hai cặp và cập nhật `scripts/scan.sh` nếu lệnh tự kiểm đổi. Mở `docs/` khi cần giải thích cho dev vì sao một rule tồn tại, không nạp sẵn vì dài (khoảng 30k token mỗi file).

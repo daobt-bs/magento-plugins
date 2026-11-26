@@ -1,6 +1,6 @@
 # Security rules for generated code (OWASP Top 10:2025)
 
-Apply these rules whenever you write or modify application code, in any language or framework. They are grouped by what you are writing; each group names the weakness classes (CWE) it prevents and ends with a `Ref:` line pointing to the OWASP Cheat Sheet that holds the details. Rule IDs match the developer document `owasp-rules.md` in this directory; open it for reasoning and examples. If a platform-specific rule file exists (for example `magento2/owasp-rules.ai.md`), follow it as well; it names the exact framework APIs.
+Apply these rules whenever you write or modify application code, in any language or framework. They are grouped by what you are writing; each group names the weakness classes (CWE) it prevents and ends with a `Ref:` line pointing to the OWASP Cheat Sheet that holds the details. Rule IDs match the developer document `../docs/owasp-rules-general.md`; open it for reasoning and examples. If a platform-specific rule file exists (for example `magento2-rules.md`), follow it as well; it names the exact framework APIs.
 
 These rules exist because the listed patterns are the most common causes of real vulnerabilities. If a task seems to require breaking a rule, stop and tell the user which rule and why instead of working around it. Rules marked "(if …)" apply only when the code does that thing.
 
